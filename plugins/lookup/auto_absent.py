@@ -23,9 +23,6 @@ DOCUMENTATION = """
           _new:
             description: Path to the old YAML file to be diffed
             required: True
-          _root:
-            description: Root key for the YAML dicts
-            required: True
 """
 from ansible.errors import AnsibleError, AnsibleParserError
 from ansible.plugins.lookup import LookupBase

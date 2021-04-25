@@ -1,1 +1,1 @@
-deepdiff
+deepdiff==5.3.0

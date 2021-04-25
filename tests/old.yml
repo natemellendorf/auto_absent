@@ -1,0 +1,6 @@
+---
+data:
+  - name: foo
+    state: present
+  - name: bar
+    state: present

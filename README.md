@@ -6,6 +6,13 @@ This is plugin is helpful when Ansible leverages a static configuration file tra
 
 Instead of updating an objects state to absent, running ansible, and then removing the object later, a user can simply remove the object from the config and run ansible once.
 
+## Install
+
+- Place auto_absent.py in the lookup directory of your Ansible plugins path.
+- Install the plugin requirements with PIP
+
+> pip install -r requirements.txt
+
 ## Example
 
 Old structure:

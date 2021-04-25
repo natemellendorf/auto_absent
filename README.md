@@ -1,10 +1,8 @@
 # Lookup Plugin - Auto Absent
  
-The Auto Absent plugin allows the user to perform a diff of two data structures, and automatically generate a new structure which contains the missing objects with their state set to absent.  
+The Auto Absent plugin allows the user to perform a diff of two YAML data structures, and automatically generate a new structure which contains the missing objects with their state set to absent.  
 
-This is plugin is helpful when Ansible leverages a static configuration file tracked in source code.  
-
-Instead of updating an objects state to absent, running ansible, and then removing the object later, a user can simply remove the object from the config and run ansible once.
+This plugin is helpful when Ansible runs from a pipeline and leverages a static configuration file that's tracked and maintained within a code repository.
 
 ## Install
 
@@ -18,31 +16,21 @@ Instead of updating an objects state to absent, running ansible, and then removi
 Old structure:
 
 ```
-{
-    "data": [
-        {
-            "name": "foo",
-            "state": "present"
-        },
-        {
-            "name": "bar",
-            "state": "present"
-        }
-    ]
-}
+---
+data:
+- name: foo
+  state: present
+- name: bar
+  state: present
 ```
 
 New structure:
 
 ```
-{
-    "data": [
-        {
-            "name": "foo",
-            "state": "present"
-        }
-    ]
-}
+---
+data:
+- name: foo
+  state: present
 ```
 
 Playbook:
@@ -51,7 +39,7 @@ Playbook:
 - name: Auto Absent
   set_fact: auto_absent="{{ lookup('auto_absent', old='old.yml', new='new.yml') }}"
 
-- name: New Config
+- name: Config
   ansible.builtin.debug:
     msg: 
       - "{{ auto_absent }}"

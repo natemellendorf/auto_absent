@@ -1,4 +1,6 @@
 # Lookup Plugin - Auto Absent
+
+![workflow](https://github.com/natemellendorf/auto_absent/actions/workflows/actions.yml/badge.svg)
  
 The Auto Absent plugin allows the user to perform a diff of two YAML data structures, and automatically generate a new structure which contains the missing objects with their state set to absent.  
 
